@@ -6,26 +6,38 @@ const data = {
 	]
 }
 
-// Only edit below``
+// Only edit below
 
-const  first  = data.lists[0]
-const  second  = data.lists[1]
-const third  = data.lists[2]
-console.log(first, second, third)
+const  first  = data.lists[0][1]
+const  second  = data.lists[1][1]
+const third  = data.lists[2][1]
+
 
 const result = []
 
 const extractBiggest = () => {
-	if (first[1] > second[1]) {
-		return first
+
+	if (first.length && (first[first.length - 1] > second.length ? first[first.length - 1] : 0) > (third.length ? third[third.length - 1] : 0)) {
+		return first.pop();
+
+	} else if (second.length && (second[second.length - 1] > third.length ? second[second.length - 1] : 0)) {
+		return second.pop();
+
+	} else if (third.length) {
+		return third.pop();
+	};
 	}
 
-	if (third[1] < 1) {
-		return second
-	}
+// 	if (first[-1] > second[-1]) {
+// 		return first
+// 	}
+
+// 	if (third[-1] < second[-1]) {
+// 		return second
+// 	}
 	
-	return result
-}
+// 	return result
+// }
 
 // Only edit above
 
@@ -50,7 +62,27 @@ result.push(extractBiggest())
 console.log(result)
 
 
-
+// const first = data.lists[0][1];
+// const second = data.lists[1][1];
+// const third = data.lists[2][1];
+// const result = [];
+// //used if statements and added .length
+// const extractBiggest = () => {
+//     // returns the biggest element among the last elements of three arrays by comparing their values.
+//   if (first.length && (first[first.length - 1] > second.length ? first[first.length - 1] : 0) > (third.length ? third[third.length - 1] : 0)) {
+//     return first.pop();
+//     /*checks whether the first array has at least one element and if the last element of first is greater
+//     than the last element of second and third. If this condition is true, then the last element of first
+//     is removed using the pop() method and returned. */
+//   } else if (second.length && (second[second.length - 1] > third.length ? second[second.length - 1] : 0)) {
+//     return second.pop();
+//     /*checks if the second array has at least one
+//      * element and if the last element of second is greater than the last element of third.
+//      * If this condition is true, then the last element of second is removed using the pop() method and returned. */
+//   } else if (third.length) {
+//     return third.pop();
+// };
+// }
 
 
 
